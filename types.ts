@@ -128,3 +128,62 @@ export interface DoctorFilters {
   page?: number;
   limit?: number;
 }
+
+
+// Admin Dashboard Types
+export interface DashboardStats {
+  totalPatients: number;
+  totalDoctors: number;
+  totalAppointments: number;
+  completedAppointments: number;
+  pendingAppointments: number;
+  totalRevenue: number;
+}
+
+export interface MonthlyRevenue {
+  _id: {
+    year: number;
+    month: number;
+  };
+  revenue: number;
+}
+
+export interface UserManagementUser {
+  _id: string;
+  name: string;
+  email: string;
+  type: 'patient' | 'doctor';
+  isActive?: boolean;
+  isVerified?: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PaymentRecord {
+  _id: string;
+  date: string;
+  doctorName: string;
+  doctorEmail: string;
+  patientName: string;
+  consultationFees: number;
+  platformFees: number;
+  totalAmount: number;
+  paymentStatus: string;
+  payoutStatus: string;
+  payoutDate?: string;
+  createdAt: string;
+}
+
+export interface ReportData {
+  userGrowth: Array<{
+    _id: {
+      year: number;
+      month: number;
+    };
+    patients: number;
+  }>;
+  appointmentStats: Array<{
+    _id: string;
+    count: number;
+  }>;
+}
