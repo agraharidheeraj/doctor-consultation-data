@@ -242,6 +242,7 @@ export const contactInfo = [
   };
 
   export const convertTo24Hour = (time12h: string): string => {
+    //new
     const [time, modifier] = time12h.split(' ');
     let [hours, minutes] = time.split(':');
     if (hours === '12') hours = '00';
